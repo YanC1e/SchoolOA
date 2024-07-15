@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学院列表</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        header ul li {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        header ul li a:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>教务系统</h1>
+        <ul>
+            <li><a href="/home">主页</a></li>
+            <li><a href="/logout">退出</a></li>
+        </ul>
+    </div>
+</header>
+<div class="container">
+    <h2>学院列表</h2>
+    <div th:if="${message}">
+        <span th:text="${message}" style="color: red;"></span>
+    </div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="college : ${colleges}">
+            <td th:text="${college.id}"></td>
+            <td th:text="${college.name}"></td>
+            <td>
+                <a th:href="@{/college/edit/{id}(id=${college.id})}" class="button">编辑</a>
+                <a th:href="@{/college/delete/{id}(id=${college.id})}" class="button">删除</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/college/add" class="button">添加学院</a>
+</div>
+</body>
+</html>

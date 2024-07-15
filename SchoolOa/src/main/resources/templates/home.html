@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        header ul li {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        header ul li a:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li a {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>教务系统</h1>
+        <ul>
+            <li><a href="/logout">退出</a></li>
+        </ul>
+    </div>
+</header>
+<div class="container">
+    <h2>欢迎, <span th:text="${user.username}">User</span>!</h2>
+    <h3>功能列表</h3>
+    <ul>
+        <li><a href="/student/list">学生信息管理</a></li>
+        <li><a href="/major/list">专业信息管理</a></li>
+        <li><a href="/course/list">课程信息管理</a></li>
+        <li><a href="/college/list">学院信息管理</a></li>
+    </ul>
+</div>
+</body>
+</html>

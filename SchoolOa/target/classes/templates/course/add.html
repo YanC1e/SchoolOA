@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加课程</title>
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        header ul li {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        header ul li a:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>教务系统</h1>
+        <ul>
+            <li><a href="/home">主页</a></li>
+            <li><a href="/logout">退出</a></li>
+        </ul>
+    </div>
+</header>
+<div class="container">
+    <h2>添加课程</h2>
+    <form action="/course/add" method="post">
+        <div>
+            <label>名称:</label>
+            <input type="text" name="name" required>
+        </div>
+        <div>
+            <label>学院:</label>
+            <input type="text" name="college" required>
+        </div>
+        <div>
+            <button type="submit">添加</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
